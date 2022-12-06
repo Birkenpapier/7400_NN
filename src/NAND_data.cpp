@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	for(int i = 0; i <= NUMBER_OF_ROWS; i++)
+    for(int i = 0; i <= NUMBER_OF_ROWS; i++)
 	{
 		int a = (int)(2.0 * rand() / double(RAND_MAX));
 		int b = (int)(2.0 * rand() / double(RAND_MAX));
@@ -18,5 +18,4 @@ int main()
 		cout << "in: " << a << ".0 " << b << ".0 " << endl;
 		cout << "out: " << t << ".0" << endl; 
 	}
-
 }
