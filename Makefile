@@ -1,6 +1,7 @@
 all:
-	g++ ./src/NAND_data.cpp -o ./src/NAND_data.out && ./src/NAND_data.out > ./src/nand.txt
-	g++ ./src/IC_nnet.cpp -I. -o ./src/IC_nnet && ./src/IC_nnet
+	g++ ./src/IC_main.cpp -I. -o ./src/IC_main
+	./src/IC_main
 
-net:
-	g++ ./src/IC_nnet.cpp -I. -o ./src/IC_nnet && ./src/IC_nnet
+complete:
+	g++ ./src/NAND_data.cpp -o ./src/NAND_data.out && ./src/NAND_data.out > ./src/nand.txt
+	g++ ./src/IC_main.cpp -I. -o ./src/IC_main && ./src/IC_main
