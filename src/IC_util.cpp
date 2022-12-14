@@ -16,7 +16,7 @@ void saveEpochs(Layer &prevLayer, int epoch)
 {
     std::cout << "start saving epoch " << epoch << std::endl;
     std::string epochN = "../epochs/epoch_" + std::to_string(epoch) + ".txt";
-    std::ofstream epochTxt(epochN);
+    std::ofstream epochTxt(epochN.c_str()); // TODO: is this working correctly?
 
 	for(unsigned n = 0; n < prevLayer.size(); ++n)
 	{
