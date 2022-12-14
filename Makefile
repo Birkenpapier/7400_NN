@@ -1,5 +1,5 @@
 all:
-	g++ ./src/IC_main.cpp -I. -o ./src/IC_main
+	g++ ./src/IC_main.cpp -I. -o ./src/IC_main --std=c++11
 	./src/IC_main
 
 complete:

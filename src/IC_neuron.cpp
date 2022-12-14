@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Neuron::updateInputWeights(Layer &prevLayer)
+void Neuron::updateInputWeights(Layer &prevLayer, int epoch, bool printVals)
 {
 	// The weights to be updated are in the Connection container
 	// in the nuerons in the preceding layer
@@ -22,7 +22,21 @@ void Neuron::updateInputWeights(Layer &prevLayer)
 				* oldDeltaWeight;
 		neuron.m_outputWeights[m_myIndex].deltaWeight = newDeltaWeight;
 		neuron.m_outputWeights[m_myIndex].weight += newDeltaWeight;
-	}
+	
+        if(printVals)
+        {
+            cout << endl << "Trained Weights:" << endl;
+            for (Connection i: neuron.m_outputWeights)
+            {
+                std::cout << "neuronID: " << n << endl;
+                std::cout << "weight: " << i.weight << endl;
+                std::cout << "deltaWeight: " << i.deltaWeight << endl;
+            }
+        }
+    }
+
+    // TODO: check the correct usage of that function
+    // saveEpochs(prevLayer, epoch);
 }
 double Neuron::sumDOW(const Layer &nextLayer) const
 {

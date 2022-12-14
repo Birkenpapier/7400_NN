@@ -19,6 +19,7 @@ int main()
 
 	vector<double> inputVals, targetVals, resultVals;
 	int epoch = 0;
+	bool printWeights = false;
     
 	while(!data.isEof())
 	{
@@ -40,7 +41,7 @@ int main()
 		printVector("Targets:", targetVals);
 		assert(targetVals.size() == topology.back());
 
-		nnet.backProp(targetVals);
+		nnet.backProp(targetVals, epoch, printWeights);
 
 		// Report how well the training is working, average over recnet
 		cout << "NNetwork recent average error: "

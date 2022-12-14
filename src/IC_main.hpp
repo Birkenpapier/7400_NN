@@ -63,7 +63,8 @@ public:
 	void feedForward(const Layer &prevLayer);
 	void calcOutputGradients(double targetVals);
 	void calcHiddenGradients(const Layer &nextLayer);
-	void updateInputWeights(Layer &prevLayer);
+	void updateInputWeights(Layer &prevLayer, int epoch, bool printVals);
+	vector<Connection> m_outputWeights; // TODO: evaluate if this is smart to be left here
 private:
 	static double eta; // [0.0...1.0] overall net training rate
 	static double alpha; // [0.0...n] multiplier of last weight change [momentum]
@@ -73,7 +74,6 @@ private:
 	static double randomWeight(void) { return rand() / double(RAND_MAX); }
 	double sumDOW(const Layer &nextLayer) const;
 	double m_outputVal;
-	vector<Connection> m_outputWeights;
 	unsigned m_myIndex;
 	double m_gradient;
 };
@@ -91,7 +91,7 @@ class NNetwork
 public:
 	NNetwork(const vector<unsigned> &topology);
 	void feedForward(const vector<double> &inputVals);
-	void backProp(const vector<double> &targetVals);
+	void backProp(const vector<double> &targetVals, int epoch, bool printWeights);
 	void getResults(vector<double> &resultVals) const;
 	double getRecentAverageError(void) const { return m_recentAverageError; }
 
@@ -104,6 +104,8 @@ private:
 
 double NNetwork::m_recentAverageSmoothingFactor = 100.0; // Number of training samples to average over
 
+// --------- util functions ---------
 void printVector(string label, vector<double> &v);
+void saveEpochs(Layer &prevLayer, int epoch);
 
 #endif

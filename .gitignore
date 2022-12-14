@@ -32,10 +32,13 @@
 *.app
 
 # Ignore all
-*
+# *
 
 # Unignore all with extensions
-!*.*
+# !*.*
 
 # Unignore all dirs
-!*/
+# !*/
+*.txt
+IC_main
+IC_nnet

@@ -12,7 +12,7 @@ void NNetwork::getResults(vector<double> &resultVals) const
 	}
 }
 
-void NNetwork::backProp(const std::vector<double> &targetVals)
+void NNetwork::backProp(const std::vector<double> &targetVals, int epoch, bool printWeights)
 {
 	// Calculate overal net error (RMS of output neuron errors)
 
@@ -61,7 +61,7 @@ void NNetwork::backProp(const std::vector<double> &targetVals)
 
 		for(unsigned n = 0; n < layer.size() - 1; ++n)
 		{
-			layer[n].updateInputWeights(prevLayer);
+			layer[n].updateInputWeights(prevLayer, epoch, printWeights);
 		}
 	}
 }
