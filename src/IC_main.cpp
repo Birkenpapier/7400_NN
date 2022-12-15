@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
 	Data data("./src/nand.txt");
 
@@ -19,7 +19,10 @@ int main()
 
 	vector<double> inputVals, targetVals, resultVals;
 	int epoch = 0;
-	bool printWeights = false;
+	
+    bool printWeights = false;
+	if ((argc == 2) && strcmp(argv[1], "saveEpoch") == 0)
+         printWeights = true;
     
 	while(!data.isEof())
 	{

@@ -14,9 +14,8 @@ void printVector(string label, vector<double> &v)
 
 void saveEpochs(Layer &prevLayer, int epoch)
 {
-    std::cout << "start saving epoch " << epoch << std::endl;
-    std::string epochN = "../epochs/epoch_" + std::to_string(epoch) + ".txt";
-    std::ofstream epochTxt(epochN.c_str()); // TODO: is this working correctly?
+    std::string epochN = "./epochs/epoch_" + std::to_string(epoch) + ".txt";
+    std::ofstream epochTxt(epochN.c_str());
 
 	for(unsigned n = 0; n < prevLayer.size(); ++n)
 	{
@@ -28,4 +27,11 @@ void saveEpochs(Layer &prevLayer, int epoch)
             epochTxt << "deltaWeight: " << i.deltaWeight << std::endl;
         }
     }
+}
+
+extern "C" int maintest(int argc, char *argv[]) 
+{
+    std::cout << "entering main from util file" << std::endl;
+
+    return 0;
 }

@@ -32,11 +32,10 @@ void Neuron::updateInputWeights(Layer &prevLayer, int epoch, bool printVals)
                 std::cout << "weight: " << i.weight << endl;
                 std::cout << "deltaWeight: " << i.deltaWeight << endl;
             }
+
+			saveEpochs(prevLayer, epoch);
         }
     }
-
-    // TODO: check the correct usage of that function
-    // saveEpochs(prevLayer, epoch);
 }
 double Neuron::sumDOW(const Layer &nextLayer) const
 {
