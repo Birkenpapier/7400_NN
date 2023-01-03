@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     bool printWeights = false;
 
 	if ((argc == 2) && strcmp(argv[1], "saveEpoch") == 0)
-         printWeights = true;
+        printWeights = true;
     
 	while(!data.isEof())
 	{
@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 		// Get new input data and feed it forward:
 		if(data.getNextInputs(inputVals) != topology[0])
 			break;
+
 		printVector("Input:", inputVals);
 		nnet.feedForward(inputVals);
 

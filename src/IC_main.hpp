@@ -97,7 +97,7 @@ public:
 	double getRecentAverageError(void) const { return m_recentAverageError; }
 
 private:
-	vector<Layer> m_layers; //m_layers[layerNum][neuronNum]
+	vector<Layer> m_layers; // m_layers[layerNum][neuronNum]
 	double m_error;
 	double m_recentAverageError;
 	static double m_recentAverageSmoothingFactor;

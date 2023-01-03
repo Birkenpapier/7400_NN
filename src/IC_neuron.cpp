@@ -80,11 +80,10 @@ void Neuron::feedForward(const Layer &prevLayer)
 
 	// Sum the previous layer's outputs (which are our inputs)
     // Include the bias node from the previous layer.
-
-	for(unsigned n = 0 ; n < prevLayer.size(); ++n)
+	for(unsigned n = 0 ; n < prevLayer.size(); n++)
 	{
 		sum += prevLayer[n].getOutputVal() * 
-				 prevLayer[n].m_outputWeights[m_myIndex].weight;
+				prevLayer[n].m_outputWeights[m_myIndex].weight;
 	}
 
 	m_outputVal = Neuron::transferFunction(sum);
