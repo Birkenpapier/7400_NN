@@ -13,3 +13,6 @@ complete:
 test_util:
 	g++ ./src/IC_util.cpp -I. -emaintest -o ./src/IC_util --std=c++11
 	./src/IC_util
+
+gen7400data:
+	g++ ./src/7400_data.cpp -o ./src/7400_data.out && ./src/7400_data.out > ./src/7400.txt

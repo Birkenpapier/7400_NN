@@ -77,7 +77,7 @@ void NNetwork::feedForward(const vector<double> &inputVals)
 	}
 
 	// Forward propagate
-	for(unsigned layerNum = 1; layerNum < m_layers.size(); ++layerNum){
+	for(unsigned layerNum = 1; layerNum < m_layers.size(); layerNum++){
 		Layer &prevLayer = m_layers[layerNum - 1];
 		for(unsigned n = 0; n < m_layers[layerNum].size() - 1; ++n){
 			m_layers[layerNum][n].feedForward(prevLayer);
@@ -87,8 +87,10 @@ void NNetwork::feedForward(const vector<double> &inputVals)
 NNetwork::NNetwork(const vector<unsigned> &topology)
 {
 	unsigned numLayers = topology.size();
-	for(unsigned layerNum = 0; layerNum < numLayers; ++layerNum){
+
+	for(unsigned layerNum = 0; layerNum < numLayers; layerNum++){
 		m_layers.push_back(Layer());
+        
 		// numOutputs of layer[i] is the numInputs of layer[i+1]
 		// numOutputs of last layer is 0
 		unsigned numOutputs = layerNum == topology.size() - 1 ? 0 :topology[layerNum + 1];

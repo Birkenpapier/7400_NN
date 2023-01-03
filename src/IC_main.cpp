@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	int epoch = 0;
 	
     bool printWeights = false;
+
 	if ((argc == 2) && strcmp(argv[1], "saveEpoch") == 0)
          printWeights = true;
     
